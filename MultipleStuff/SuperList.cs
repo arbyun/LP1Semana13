@@ -41,5 +41,23 @@ namespace MultipleStuff
 
             return (minMax.Min, minMax.Max);
         }
+        
+        public Tuple<double, double> GetMinMax3()
+        {
+            double min = double.MaxValue;
+            double max = double.MinValue;
+
+            foreach (double num in this)
+            {
+                if (num < min)
+                    min = num;
+                if (num > max)
+                    max = num;
+            }
+
+            return Tuple.Create(min, max);
+        }
+
+
     }
 }
