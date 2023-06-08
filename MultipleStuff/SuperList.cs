@@ -27,6 +27,19 @@ namespace MultipleStuff
             public double Max { get; set; }
         }
         
-        
+        public (double min, double max) GetMinMax2()
+        {
+            MinMaxValues minMax = new MinMaxValues();
+
+            foreach (double num in this)
+            {
+                if (num < minMax.Min)
+                    minMax.Min = num;
+                if (num > minMax.Max)
+                    minMax.Max = num;
+            }
+
+            return (minMax.Min, minMax.Max);
+        }
     }
 }
