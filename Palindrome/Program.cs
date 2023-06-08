@@ -16,7 +16,10 @@ namespace Palindrome
                 throw new ArgumentNullException(nameof(str));
             }
 
-            
+            if (str.Length < 2)
+            {
+                return true;
+            }
 
             return IsRecursive(str);
         }
