@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MultipleStuff
 {
@@ -19,5 +20,13 @@ namespace MultipleStuff
 
             return (min, max);
         }
+        
+        private struct MinMaxValues
+        {
+            public double Min { get; set; }
+            public double Max { get; set; }
+        }
+        
+        
     }
 }
