@@ -8,8 +8,8 @@ namespace Palindrome
         {
             Console.WriteLine("Hello, World!");
         }
-        
-        static bool IsPalindrome(string str)
+
+        private static bool IsPalindrome(string str)
         {
             if (str == null)
             {
@@ -24,9 +24,20 @@ namespace Palindrome
             return IsRecursive(str);
         }
 
-        static bool IsRecursive(string str)
+        private static bool IsRecursive(string str)
         {
-            
+            if (str.Length < 2)
+            {
+                return true;
+            }
+
+            if (str[0] == str[^1])
+            {
+                string substring = str.Substring(1, str.Length - 2);
+                return IsRecursive(substring);
+            }
+
+            return false;
         }
     }
 }
