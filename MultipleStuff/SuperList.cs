@@ -5,20 +5,28 @@ namespace MultipleStuff
 {
     internal class SuperList : List<double>
     {
-        public (double min, double max) GetMinMax1()
+        public void GetMinMax1(out double min, out double max)
         {
-            double min = double.MaxValue;
-            double max = double.MinValue;
-
-            foreach (double num in this)
+            if (Count == 0)
             {
-                if (num < min)
-                    min = num;
-                if (num > max)
-                    max = num;
+                throw new InvalidOperationException("A lista está vazia.");
             }
+        
+            min = double.MaxValue;
+            max = double.MinValue;
 
-            return (min, max);
+            foreach (double item in this)
+            {
+                if (item < min)
+                {
+                    min = item;
+                }
+
+                if (item > max)
+                {
+                    max = item;
+                }
+            }
         }
         
         private struct MinMaxValues
